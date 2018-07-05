@@ -4,8 +4,8 @@ product:
   stage: CR*
   issueTrackerUrl: https://github.com/syndesisio/syndesis/issues 
 version: ${version.fuse.prefix}
-milestone: Sprint25
-group: Fuse iPaaS 20180604
+milestone: ${version.sprint.milestone}
+group: Fuse iPaaS
 defaultBuildParameters:
   environmentId: 1
   buildScript: 'mvn -e -V -B -DskipTests -DfailIfNoTests=false -Dtest=false clean
