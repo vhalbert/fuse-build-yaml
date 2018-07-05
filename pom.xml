@@ -21,11 +21,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.redhat.fuse</groupId>
-  <artifactId>fuse-build-yaml</artifactId>
+  <artifactId>ipaas-build-yaml</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>Fuse Build YAML</name>
-  <description>Fuse Build YAML descriptor generator</description>
+  <name>iPaaS Build YAML</name>
+  <description>iPaaS Build YAML descriptor generator</description>
  
    <licenses>
         <license>
@@ -101,7 +101,7 @@
             <configuration>
               <artifacts>
                 <artifact>
-                  <file>target/extra-resources/fuse.yaml</file>
+                  <file>target/extra-resources/ipaas.yaml</file>
                   <type>yaml</type>
                   <classifier>yaml</classifier>
                 </artifact>
