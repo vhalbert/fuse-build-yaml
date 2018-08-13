@@ -22,7 +22,7 @@
 
   <groupId>com.redhat.fuse</groupId>
   <artifactId>ipaas-build-yaml</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0.0.fuse-710010</version>
   <packaging>pom</packaging>
   <name>iPaaS Build YAML</name>
   <description>iPaaS Build YAML descriptor generator</description>
@@ -68,7 +68,7 @@
     <version.spring-cloud-kubernetes>0.1.6.fuse-000056</version.spring-cloud-kubernetes>
     <version.wsdl2rest>0.7.0.fuse-000071</version.wsdl2rest>
     <version.syndesis>1.4.0.fuse-000001</version.syndesis>
-    <version.atlasmap>1.35.0.fuse-000001</version.atlasmap>
+    <version.atlasmap>1.35.7.fuse-710001</version.atlasmap>
 
     <version.sprint.milestone>Sprint25</version.sprint.milestone>
 
