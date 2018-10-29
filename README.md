@@ -1,3 +1,3 @@
 # fuse-build-yaml
 
-This project creates a configuration file to drive the PNC build.
+This project creates a YAML configuration file to drive the PNC build.
