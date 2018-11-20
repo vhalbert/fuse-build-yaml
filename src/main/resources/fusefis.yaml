@@ -108,14 +108,14 @@ builds:
   dependencies:
   - camel-2.21.0-${version.fuse.prefix}
 
-- name: fuse-extras-7.3.0-${version.fuse.prefix}
+- name: fuse-extras-distro-${version.fuse.prefix}
   project: jboss-fuse/fuse-extras-distro
     #fetchScmUrl: ${fuse-extras.fetch.scmUrl}
     #pushScmUrl: ${fuse-extras.push.scmUrl}
     #tag: ${fuse-extras.tag}
     #buildCommand: ${fuse-extras.buildCommand}
   scmUrl: git+ssh://code.engineering.redhat.com/jboss-fuse/fuse-extras-distro.git
-  scmRevision: fuse-extras-distro-${version.fuse.extras.distro}
+  scmRevision: fuse-extras-distro-${version.fuse.extras.distro}-redhat
   customPmeParameters:
     - '-DprojectMetaSkip=true'
   dependencies:
