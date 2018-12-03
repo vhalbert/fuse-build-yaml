@@ -457,7 +457,7 @@ builds:
   project: jboss-fuse/narayana-spring-boot
   scmUrl: git+ssh://code.engineering.redhat.com/jboss-fuse/narayana-spring-boot.git
   scmRevision: ${narayana-spring-boot.tag}
-  buildScript: 'mvn -e -V -B -DskipTests -DfailIfNoTests=false -Dtest=false -P clean deploy -DskipClean'
+  buildScript: 'mvn -e -V -B -DskipTests -DfailIfNoTests=false -Dtest=false -Prelease clean deploy -DskipClean'
   dependencies:
     - camel-2.21.0-${version.fuse.prefix}
 
