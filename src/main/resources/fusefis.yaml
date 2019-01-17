@@ -89,6 +89,7 @@ builds:
     - '-DdependencyExclusion.org.reactivestreams:*@*='
     - '-DdependencyOverride.org.bouncycastle:*@*='
     - '-DdependencyExclusion.org.apache.kafka:*@*='
+    - '-DdependencyExclusion.io.reactivex:*@*='
 
   dependencies:
   - cxf-3.1.11-${version.fuse.prefix}
@@ -107,14 +108,14 @@ builds:
   dependencies:
   - camel-2.21.0-${version.fuse.prefix}
 
-- name: fuse-extras-7.3.0-${version.fuse.prefix}
+- name: fuse-extras-distro-${version.fuse.prefix}
   project: jboss-fuse/fuse-extras-distro
     #fetchScmUrl: ${fuse-extras.fetch.scmUrl}
     #pushScmUrl: ${fuse-extras.push.scmUrl}
     #tag: ${fuse-extras.tag}
     #buildCommand: ${fuse-extras.buildCommand}
   scmUrl: git+ssh://code.engineering.redhat.com/jboss-fuse/fuse-extras-distro.git
-  scmRevision: fuse-extras-distro-${version.fuse.extras.distro}
+  scmRevision: fuse-extras-distro-${version.fuse.extras.distro}-redhat
   customPmeParameters:
     - '-DprojectMetaSkip=true'
   dependencies:
@@ -244,7 +245,7 @@ builds:
     #pushScmUrl: ${kubernetes-client.push.scmUrl}
     #tag: ${kubernetes-client.tag}
     #buildCommand: ${kubernetes-client.buildCommand}
-  scmUrl: git+ssh://code.engineering.redhat.com/fabric8io-kubernetes-client.git
+  scmUrl: git+ssh://code.engineering.redhat.com/kubernetes-client.git
   scmRevision: kubernetes-client-${version.kubernetes.client}
   customPmeParameters:
     - '-DprojectMetaSkip=true'
@@ -255,23 +256,23 @@ builds:
   - kubernetes-model-2.0.9-${version.fuse.prefix}
 
 - name: spring-cloud-kubernetes-0.1.6-${version.fuse.prefix}
-  project: fabric8io/spring-cloud-kubernetes
+  project: jboss-fuse/spring-cloud-kubernetes
     #fetchScmUrl: ${spring-cloud-kubernetes.fetch.scmUrl}
     #pushScmUrl: ${spring-cloud-kubernetes.push.scmUrl}
     #tag: ${spring-cloud-kubernetes.tag}
     #buildCommand: ${spring-cloud-kubernetes.buildCommand}
-  scmUrl: git+ssh://code.engineering.redhat.com/fabric8io-spring-cloud-kubernetes.git
+  scmUrl: git+ssh://code.engineering.redhat.com/jboss-fuse/spring-cloud-kubernetes.git
   scmRevision: spring-cloud-kubernetes-${version.spring-cloud-kubernetes}
   dependencies:
   - kubernetes-client-3.0.3-${version.fuse.prefix}
 
 - name: docker-maven-plugin-0.23.0-${version.fuse.prefix}
-  project: fabric8io/docker-maven-plugin
+  project: jboss-fuse/docker-maven-plugin
     #fetchScmUrl: ${docker-maven-plugin.fetch.scmUrl}
     #pushScmUrl: ${docker-maven-plugin.push.scmUrl}
     #tag: ${docker-maven-plugin.tag}
     #buildCommand: ${docker-maven-plugin.buildCommand}
-  scmUrl: git+ssh://code.engineering.redhat.com/fabric8io-docker-maven-plugin.git
+  scmUrl: git+ssh://code.engineering.redhat.com/jboss-fuse/docker-maven-plugin.git
   scmRevision: docker-maven-plugin-${docker.maven.plugin.version}
   buildScript: 'mvn -e -V -B -DskipTests -DfailIfNoTests=false -Dtest=false -Dgpg.skip=true -Prelease clean deploy'
 
@@ -392,7 +393,7 @@ builds:
     #pushScmUrl: ${fabric8v2.push.scmUrl}
     #tag: ${fabric8v2.tag}
     #buildCommand: ${fabric8v2.buildCommand}
-  scmUrl: git+ssh://code.engineering.redhat.com/fabric8io-fabric8.git
+  scmUrl: git+ssh://code.engineering.redhat.com/jboss-fuse/fabric8.git
   scmRevision: fabric8v2-${version.fabric8}
   customPmeParameters:
     - '-DprofileInjection=org.jboss.fuse.pom-manipulation:fabric8-profiles:${version.pom-manipulation}'
