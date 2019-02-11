@@ -25,7 +25,13 @@ builds:
   - '-DdependencyOverride.com.sun.xml.bind:*@*=2.2.11.redhat-4'
   - '-DdependencyOverride.org.ow2.asm:*@*='
   - '-DprojectMetaSkip=true'
-  buildScript: 'mvn -e -V -B -DskipTests -DfailIfNoTests=false -Dtest=false -Dgpg.skip=true -Pcore-release clean deploy'
+  buildScript: >
+     
+     sed -i "s|<module>accumulo</module>|<!--module>accumulo</module-->|" "connectors/pom.xml"
+
+     sed -i "s|<module>infinispan</module>|<!--module>infinispan</module-->|" "connectors/pom.xml"
+    
+    'mvn -e -V -B -DskipTests -DfailIfNoTests=false -Dtest=false -Dgpg.skip=true -Pcore-release clean deploy'
 
 - name: teiid-spring-boot-1.0.3
   project: teiid/teiid-spring-boot
@@ -43,6 +49,21 @@ builds:
   buildScript: 'mvn -e -V -B -DskipTests -DfailIfNoTests=false -Dtest=false -Dgpg.skip=true -Prelease clean deploy'
   dependencies:
   - teiid-12.1.0
+
+- name: teiid-openshift-examples-1.0.0
+  project: teiid/teiid-openshift-examples
+    #fetchScmUrl: ${teiid-openshift-examples.fetch.scmUrl}
+    #pushScmUrl: ${teiid-openshift-examples.push.scmUrl}
+    #tag: ${teiid-openshift-examples.tag}
+    #buildCommand: ${teiid-openshift-examples.buildCommand}
+    #externalScmUrl: git+https://code.engineering.redhat.com/gerrit/teiid/teiid-openshift-examples.git
+  scmUrl: git+ssh://code.stage.engineering.redhat.com/teiid/teiid-openshift-examples.git
+  scmRevision: teiid-openshift-examples-${version.teiid-openshift-examples}
+  customPmeParameters:
+  - '-DprojectMetaSkip=true'
+  buildScript: 'mvn -e -V -B -DskipTests -DfailIfNoTests=false -Dtest=false clean deploy'
+  dependencies:
+  - teiid-spring-boot-1.0.3
 
 outputPrefixes:
   releaseFile: dv-test
