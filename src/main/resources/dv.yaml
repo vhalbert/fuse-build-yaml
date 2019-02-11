@@ -25,7 +25,13 @@ builds:
   - '-DdependencyOverride.com.sun.xml.bind:*@*=2.2.11.redhat-4'
   - '-DdependencyOverride.org.ow2.asm:*@*='
   - '-DprojectMetaSkip=true'
-  buildScript: 'mvn -e -V -B -DskipTests -DfailIfNoTests=false -Dtest=false -Dgpg.skip=true -Pcore-release clean deploy'
+  buildScript: >
+     
+     sed -i "s|<module>accumulo</module>|<!--module>accumulo</module-->|" "connectors/pom.xml"
+
+     sed -i "s|<module>infinispan</module>|<!--module>infinispan</module-->|" "connectors/pom.xml"
+    
+    'mvn -e -V -B -DskipTests -DfailIfNoTests=false -Dtest=false -Dgpg.skip=true -Pcore-release clean deploy'
 
 - name: teiid-spring-boot-1.0.3
   project: teiid/teiid-spring-boot
