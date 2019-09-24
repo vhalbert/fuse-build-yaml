@@ -7,7 +7,7 @@ version: ${version.fuse.prefix}
 milestone: ${build.milestone}
 group: Red Hat Fuse - Images ${version.fuse.project} ${build.milestone}
 defaultBuildParameters:
-  environmentId: 1
+  environmentId: 8
   buildScript: 'mvn -e -V -B -DskipTests -DfailIfNoTests=false -Dtest=false clean
     deploy'
 
@@ -23,7 +23,7 @@ builds:
   externalScmUrl: ssh://git@github.com/jboss-fuse/hawtio-online.git
   scmRevision: hawtio-online-${version.hawtio.online}
   buildScript: >
-    export REG=http://mwnodereg.hosts.mwqe.eng.bos.redhat.com:${port.number}
+    export REG=\"http://indy.newcastle.svc.cluster.local/api/folo/track/${buildContentId}/npm/remote/yarnpkg/\"
 
     sed -i \"s#https://registry.yarnpkg.com/#${REG}/#g\" yarn.lock
 
