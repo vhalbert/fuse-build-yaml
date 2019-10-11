@@ -93,7 +93,7 @@ builds:
     #pushScmUrl: ${teiid-operator.push.scmUrl}
     #tag: ${teiid-operator.tag}
     #buildCommand: ${teiid-operator.buildCommand}
-  scmUrl: git+ssh://code.engineering.redhat.com/teiid/teiid-operator.git
+  scmUrl: git+ssh://code.engineering.redhat.com/jboss-fuse/teiid-operator.git
   externalScmUrl: ssh://git@github.com/jboss-fuse/teiid-operator.git
   scmRevision: teiid-operator-${version.teiid-operator}
   customPmeParameters:
