@@ -12,7 +12,7 @@ defaultBuildParameters:
     deploy'
 
 builds:
-- name: atlasmap-1.43.0-${version.fuse.prefix}
+- name: atlasmap-1.42.9-${version.fuse.prefix}
   project: jboss-fuse/atlasmap
     #fetchScmUrl: ${atlasmap.fetch.scmUrl}
     #pushScmUrl: ${atlasmap.push.scmUrl}
