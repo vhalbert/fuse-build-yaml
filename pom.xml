@@ -22,7 +22,7 @@
 
   <groupId>com.redhat.fuse</groupId>
   <artifactId>fuse-build-yaml</artifactId>
-  <version>7.5.0.redhat-SNAPSHOT</version>
+  <version>7.6.0.redhat-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Fuse Build YAML</name>
   <description>Fuse Build YAML descriptor generator</description>
@@ -42,7 +42,7 @@
   <properties>
     <yaml.name>fusefis</yaml.name>
     <pme.filename>pme.properties</pme.filename>
-    <version.fuse.project>7.5</version.fuse.project>
+    <version.fuse.project>7.6</version.fuse.project>
     <version.fuse.prefix>${version.fuse.project}.0</version.fuse.prefix>
     <version.sprint.milestone>45</version.sprint.milestone>
     <build.number>1</build.number>
@@ -89,7 +89,7 @@
     <version.apicurio-registry>7.3.0.fuse-730010</version.apicurio-registry>
 
     <!-- build information -->
-    <build.milestone>CR1</build.milestone>
+    <build.milestone>ER1</build.milestone>
     <port.number>49159</port.number>
     <build.url>1</build.url>
 
@@ -107,6 +107,7 @@
     <spring-boot-camel-drools.version>1.0.0.fuse-710004</spring-boot-camel-drools.version>
     <spring-boot-camel-infinispan.version>1.0.0.fuse-710004</spring-boot-camel-infinispan.version>
     <spring-boot-camel-rest-sql.version>1.0.0.fuse-710004</spring-boot-camel-rest-sql.version>
+    <spring-boot-camel-rest-3scale.version>1.0.0.fuse-710004</spring-boot-camel-rest-3scale.version>
     <spring-boot-camel-teiid.version>1.0.0.fuse-710004</spring-boot-camel-teiid.version>
     <spring-boot-camel-xml.version>1.0.0.fuse-710004</spring-boot-camel-xml.version>
     <spring-boot-cxf-jaxrs.version>1.0.0.fuse-710004</spring-boot-cxf-jaxrs.version>
