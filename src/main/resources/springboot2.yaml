@@ -47,7 +47,7 @@ builds:
 
     mvn -e -V -B -DskipTests -DfailIfNoTests=false -Dtest=false -Penable-schemagen,release,apt
     clean deploy -DkeepStagingRepositoryOnCloseRuleFailure=true -Dgpg.skip=true -pl
-    '!org.apache.camel:camel-itest,!org.apache.camel.example:camel-example-swagger-xml'
+    '!org.apache.camel:camel-itest'
   buildPodMemory: 12
   customPmeParameters:
     - ${camel.pme.options}
@@ -250,6 +250,17 @@ builds:
   dependencies:
     - redhat-fuse-sb2-${version.fuse.prefix}
 
+- name: spring-boot-camel-config-sb2-1.0.0-${version.fuse.prefix}
+  project: fabric8-quickstarts/spring-boot-camel-config
+  scmUrl: git+ssh://code.engineering.redhat.com/fabric8-quickstarts/spring-boot-camel-config.git
+  externalScmUrl: ssh://git@github.com/fabric8-quickstarts/spring-boot-camel-config.git
+  scmRevision: spring-boot-camel-config-${spring-boot-camel-config.version}
+  buildScript: 'mvn -e -V -B -DskipTests -DfailIfNoTests=false -Dtest=false clean deploy -DskipClean'
+  customPmeParameters:
+    - ${spring-boot-camel-config.pme.options}
+  dependencies:
+    - redhat-fuse-sb2-${version.fuse.prefix}
+
 - name: spring-boot-camel-drools-sb2-1.0.0-${version.fuse.prefix}
   project: fabric8-quickstarts/spring-boot-camel-drools
   scmUrl: git+ssh://code.engineering.redhat.com/fabric8-quickstarts/spring-boot-camel-drools.git
@@ -327,6 +338,28 @@ builds:
   dependencies:
     - redhat-fuse-sb2-${version.fuse.prefix}
 
+- name: spring-boot-cxf-jaxrs-xml-sb2-1.0.0-${version.fuse.prefix}
+  project: fabric8-quickstarts/spring-boot-cxf-jaxrs-xml
+  scmUrl: git+ssh://code.engineering.redhat.com/fabric8-quickstarts/spring-boot-cxf-jaxrs-xml.git
+  externalScmUrl: ssh://git@github.com/fabric8-quickstarts/spring-boot-cxf-jaxrs-xml.git
+  scmRevision: spring-boot-cxf-jaxrs-xml-${spring-boot-cxf-jaxrs-xml.version}
+  buildScript: 'mvn -e -V -B -DskipTests -DfailIfNoTests=false -Dtest=false clean deploy -DskipClean'
+  customPmeParameters:
+    - ${spring-boot-cxf-jaxrs-xml.pme.options}
+  dependencies:
+    - redhat-fuse-sb2-${version.fuse.prefix}
+
+- name: spring-boot-cxf-jaxws-xml-sb2-1.0.0-${version.fuse.prefix}
+  project: fabric8-quickstarts/spring-boot-cxf-jaxws-xml
+  scmUrl: git+ssh://code.engineering.redhat.com/fabric8-quickstarts/spring-boot-cxf-jaxws-xml.git
+  externalScmUrl: ssh://git@github.com/fabric8-quickstarts/spring-boot-cxf-jaxws-xml.git
+  scmRevision: spring-boot-cxf-jaxws-xml-${spring-boot-cxf-jaxws-xml.version}
+  buildScript: 'mvn -e -V -B -DskipTests -DfailIfNoTests=false -Dtest=false clean deploy -DskipClean'
+  customPmeParameters:
+    - ${spring-boot-cxf-jaxws-xml.pme.options}
+  dependencies:
+    - redhat-fuse-sb2-${version.fuse.prefix}
+
 - name: ipaas-quickstarts-sb2-2.2.0-${version.fuse.prefix}
   project: jboss-fuse/ipaas-quickstarts
     #fetchScmUrl : ${ipaas-quickstarts.fetch.scmUrl}
@@ -338,7 +371,7 @@ builds:
   externalScmUrl: ssh://git@github.com/jboss-fuse/ipaas-quickstarts.git
   scmRevision: ipaas-quickstarts-${version.ipaas.quickstarts}
   buildScript: >
-    mvn -e -V -B -DskipTests -DfailIfNoTests=false -Dtest=false -Dquickstart.git.repos=repolist.txt -Dgpg.skip -Prelease clean deploy
+    mvn -e -V -B -DskipTests -DfailIfNoTests=false -Dtest=false -Dquickstarts.url.base=https://code.engineering.redhat.com/gerrit/fabric8-quickstarts -Dquickstart.git.repos=target/extra-resources/repolist.txt -Dgpg.skip -Prelease clean deploy
   customPmeParameters:
     - ${ipaas-quickstarts.pme.options}
   dependencies:
@@ -354,6 +387,8 @@ builds:
   - spring-boot-camel-xml-sb2-1.0.0-${version.fuse.prefix}
   - spring-boot-cxf-jaxrs-sb2-1.0.0-${version.fuse.prefix}
   - spring-boot-cxf-jaxws-sb2-1.0.0-${version.fuse.prefix}
+  - spring-boot-cxf-jaxrs-xml-sb2-1.0.0-${version.fuse.prefix}
+  - spring-boot-cxf-jaxws-xml-sb2-1.0.0-${version.fuse.prefix}
 
 - name: narayana-spring-boot-sb2-1.0.2-${version.fuse.prefix}
     #fetchScmUrl: ${narayana-spring-boot.fetch.scmUrl}
@@ -368,6 +403,38 @@ builds:
   buildScript: 'mvn -e -V -B -DskipTests -DfailIfNoTests=false -Dtest=false -Prelease clean deploy -DskipClean'
   customPmeParameters:
     - ${narayana-spring-boot.pme.options}
+  dependencies:
+    - camel-2.23.2-${version.fuse.prefix}
+
+- name: application-templates-sb2-1.0.0-${version.fuse.prefix}
+    #fetchScmUrl: ${application-templates.fetch.scmUrl}
+    #pushScmUrl: ${application-templates.push.scmUrl}
+    #tag: apicurio-registry-${version.application-templates}
+    #buildCommand: ${application-templates.buildCommand}
+  project: jboss-fuse/application-templates
+  scmUrl: git+ssh://code.engineering.redhat.com/jboss-fuse-application-templates.git
+  externalScmUrl: ssh://git@github.com/jboss-fuse/application-templates.git
+  scmRevision: application-templates-${version.application-templates}
+  buildScript: 'mvn -B clean deploy dependency:tree -DskipTests -Pprod -Pkafka -Pjpa'
+  customPmeParameters:
+    - ${application-templates.pme.options}
+  dependencies:
+    - redhat-fuse-${version.fuse.prefix}
+    - ipaas-quickstarts-sb2-2.2.0-${version.fuse.prefix}
+
+- name: camel-k-runtime-1.0.0-${version.fuse.prefix}
+    #fetchScmUrl: ${camel-k-runtime.fetch.scmUrl}
+    #pushScmUrl: ${camel-k-runtime.push.scmUrl}
+    #tag: camel-k-runtime-${version.camel-k-runtime}
+    #buildCommand: ${camel-k-runtime.buildCommand}
+  project: jboss-fuse/camel-k-runtime
+  scmUrl: git+ssh://code.engineering.redhat.com/jboss-fuse/camel-k-runtime.git
+  externalScmUrl: ssh://git@github.com/jboss-fuse/camel-k-runtime.git
+  scmRevision: camel-k-runtime-${version.camel-k-runtime}
+  pigYamlMetadata: Fuse dev build ${build.url} Fuse ${yaml.name} yaml config ${project.version}
+  buildScript: 'mvn -e -V -B -DskipTests -Dgpg.skip=true -DfailIfNoTests=false -Prelease -Dtest=false clean deploy -DskipClean'
+  customPmeParameters:
+    - ${camel-k-runtime.pme.options}
   dependencies:
     - camel-2.23.2-${version.fuse.prefix}
 
